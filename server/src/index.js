@@ -22,6 +22,25 @@ mongoose.connect('mongodb+srv://danielofaustino:LinuxBR951@cluster0.izb07.gcp.mo
 const PORT = 3333
 
 
+
+
+//Middlewares
+//logRequest is a middleware that show us the method called in each action
+function logRequests(req, res, next) {
+  const { method, url } = req;
+
+  const logLabel = `[${method.toUpperCase()} ${url}]`;
+
+  console.log(logLabel);
+  console.time(logLabel);
+  next();
+  console.timeEnd(logLabel);
+}
+
+app.use(logRequests);
+
+
+
 // Registering a new item
 app.post('/items', async (req, res) => {
 
