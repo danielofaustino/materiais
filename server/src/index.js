@@ -22,6 +22,7 @@ mongoose.connect('mongodb+srv://danielofaustino:LinuxBR951@cluster0.izb07.gcp.mo
 const PORT = 3333
 
 
+// Registering a new item
 app.post('/items', async (req, res) => {
 
   const item = req.body.item;
