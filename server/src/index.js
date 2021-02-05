@@ -56,11 +56,13 @@ app.post('/items', async (req, res) => {
   const defaultInventory = req.body.defaultInventory
 
   const newItem = new MaterialModel({ 
+
     item: item,
     type: type,
     previousInventory: previousInventory,
     currentInventory: currentInventory,
     defaultInventory: defaultInventory
+
   });
 
   try{
@@ -71,6 +73,32 @@ app.post('/items', async (req, res) => {
   }
 
 
+})
+
+app.put('/items/:id', async (req, res) =>{
+
+  const _id = req.params._id
+  const item = req.body.item;
+  const type = req.body.type;
+  const previousInventory = req.body.previousInventory
+  const currentInventory = req.body.currentInventory
+  const defaultInventory = req.body.defaultInventory
+
+  try{
+    await MaterialModel.findById(_id, (error,updateMaterial) =>{
+
+      updateMaterial.item = item;
+      updateMaterial.type = type;
+      updateMaterial.previousInventory = previousInventory;
+      updateMaterial.currentInventory = currentInventory;
+      updateMaterial.defaultInventory = defaultInventory
+      updateMaterial.save();
+
+    });
+  } catch(err){
+    console.log(err)
+  }
+  res.send("Updated item")
 })
 
 
