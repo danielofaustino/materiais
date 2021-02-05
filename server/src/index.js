@@ -21,9 +21,6 @@ mongoose.connect('mongodb+srv://danielofaustino:LinuxBR951@cluster0.izb07.gcp.mo
 // Port Used
 const PORT = 3333
 
-
-
-
 //Middlewares
 //logRequest is a middleware that show us the method called in each action
 function logRequests(req, res, next) {
@@ -39,7 +36,15 @@ function logRequests(req, res, next) {
 
 app.use(logRequests);
 
-
+// get materials
+app.get('/items', async (req, res) =>{
+  MaterialModel.find({}, (err, result) =>{
+    if(err){
+      res.send(err);
+    }
+    res.send(result)
+  });
+})
 
 // Registering a new item
 app.post('/items', async (req, res) => {
@@ -67,5 +72,7 @@ app.post('/items', async (req, res) => {
 
 
 })
+
+
 
 app.listen(PORT, () =>{ console.log('Server Started 🚀')})
