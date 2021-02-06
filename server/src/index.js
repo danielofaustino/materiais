@@ -75,6 +75,7 @@ app.post('/items', async (req, res) => {
 
 })
 
+// Put method to Update an item
 app.put('/items/:id', async (req, res) =>{
 
   const _id  = req.params.id
@@ -84,10 +85,7 @@ app.put('/items/:id', async (req, res) =>{
   const currentInventory = req.body.currentInventory
   const defaultInventory = req.body.defaultInventory
 
-  //console.log(_id,item,type,previousInventory,currentInventory,defaultInventory)
- 
 
-  
   try{
     await MaterialModel.findById(_id, (error,updateMaterial) =>{
 
