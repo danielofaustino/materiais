@@ -101,8 +101,17 @@ app.put('/items/:id', async (req, res) =>{
     console.log(err)
   }
   
-  res.send("Updated item")
+  res.send("Updated item ✔")
   
+})
+
+// Delete Method 
+app.delete('/items/:id', async(req, res) =>{
+  const _id = req.params.id
+  await MaterialModel.findByIdAndRemove(_id).exec()
+  res.send(" Item Deleted ✔")
+  
+
 })
 
 
