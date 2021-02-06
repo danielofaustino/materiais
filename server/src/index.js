@@ -77,13 +77,17 @@ app.post('/items', async (req, res) => {
 
 app.put('/items/:id', async (req, res) =>{
 
-  const _id = req.params._id
-  const item = req.body.item;
-  const type = req.body.type;
-  const previousInventory = req.body.previousInventory
+  const _id  = req.params.id
+  const item = req.body.item
+  const type = req.body.type
+  const previousInventory = req.body.previousInventory 
   const currentInventory = req.body.currentInventory
   const defaultInventory = req.body.defaultInventory
 
+  //console.log(_id,item,type,previousInventory,currentInventory,defaultInventory)
+ 
+
+  
   try{
     await MaterialModel.findById(_id, (error,updateMaterial) =>{
 
@@ -98,7 +102,9 @@ app.put('/items/:id', async (req, res) =>{
   } catch(err){
     console.log(err)
   }
+  
   res.send("Updated item")
+  
 })
 
 
