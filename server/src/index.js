@@ -52,7 +52,6 @@ app.post('/items', async (req, res) => {
 
   const item = req.body.item;
   const type = req.body.type;
-  const previousInventory = req.body.previousInventory
   const currentInventory = req.body.currentInventory
   const defaultInventory = req.body.defaultInventory
 
@@ -60,7 +59,6 @@ app.post('/items', async (req, res) => {
 
     item: item,
     type: type,
-    previousInventory: previousInventory,
     currentInventory: currentInventory,
     defaultInventory: defaultInventory
 
@@ -82,7 +80,6 @@ app.put('/items/:id', async (req, res) =>{
   const _id  = req.params.id
   const item = req.body.item
   const type = req.body.type
-  const previousInventory = req.body.previousInventory 
   const currentInventory = req.body.currentInventory
   const defaultInventory = req.body.defaultInventory
 
@@ -92,7 +89,6 @@ app.put('/items/:id', async (req, res) =>{
 
       updateMaterial.item = item;
       updateMaterial.type = type;
-      updateMaterial.previousInventory = previousInventory;
       updateMaterial.currentInventory = currentInventory;
       updateMaterial.defaultInventory = defaultInventory
       updateMaterial.save();
