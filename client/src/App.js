@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import ReactDom from 'react-dom';
+import Button from '@material-ui/core/Button'
 import './App.css';
 
 import axios from 'axios';
@@ -17,7 +19,12 @@ useEffect(() => {
   
 
   return (
-    <div className="container">
+    <div>
+      <Button variant="contained" color="primary">
+        Hello Material UI
+      </Button>
+
+    {/*
 
       <table className="table text-white bg-primary table-hover">
 
@@ -25,7 +32,6 @@ useEffect(() => {
         <tr>
           <th scope="col">ITEM</th>
           <th scope="col">TIPO</th>
-          <th scope="col">ESTOQUE ANTERIOR</th>
           <th scope="col">ESTOQUE ATUAL</th>
           <th scope="col">ESTOQUE PADRÃO</th>
           <th></th>
@@ -41,7 +47,6 @@ useEffect(() => {
             <th scope="row">{item.item}</th>
             
             <td>{item.type}</td>
-            <td>{item.previousInventory}</td>
             <td>{item.currentInventory}</td>
             <td>{item.defaultInventory}</td>
             <td>
@@ -60,6 +65,8 @@ useEffect(() => {
               })}
   
       </table>
+
+            */}
       
     </div>
   );
