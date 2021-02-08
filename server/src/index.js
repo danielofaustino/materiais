@@ -119,4 +119,4 @@ app.delete('/items/:id', async(req, res) =>{
 
 
 
-app.listen(PORT, () =>{ console.log('Server Started 🚀')})
+app.listen(PORT, () =>{ console.log(`Server Started on PORT ${PORT} 🚀`)})
