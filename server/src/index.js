@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const MaterialModel = require('../models/Materials')
+const ReportsModel = require('../models/Reports')
 
 const app = express();
 
@@ -95,6 +96,8 @@ app.put('/items/:id', async (req, res) =>{
       updateMaterial.currentInventory = currentInventory;
       updateMaterial.defaultInventory = defaultInventory
       updateMaterial.save();
+
+          
 
     });
   } catch(err){
